@@ -5744,15 +5744,29 @@ input.main-search-input::placeholder {
 .popular-card-items {
   display: flex;
   align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 2px solid var(--border);
+  border-radius: 15px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  background-color: var(--white);
+}
+.popular-card-items:hover {
+  border-color: var(--theme);
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.15), 0px 10px 25px 0px rgba(255, 55, 38, 0.2);
+  transform: translateY(-8px);
 }
 .popular-card-items .content {
   flex-basis: 50%;
   padding-left: 30px;
+  transition: all 0.4s ease-in-out;
+}
+.popular-card-items:hover .content {
+  color: var(--theme);
 }
 .popular-card-items .content h4 {
   margin-bottom: 5px;
+  transition: all 0.4s ease-in-out;
+  font-weight: 600;
 }
 .popular-card-items .content h4 a:hover {
   color: var(--theme);
@@ -5760,13 +5774,18 @@ input.main-search-input::placeholder {
 .popular-card-items .car-image {
   max-width: 300px;
   position: relative;
-  height: 180px;
+  height: 200px;
+  overflow: hidden;
 }
 .popular-card-items .car-image img {
   width: 100%;
   height: 100%;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 15px 15px 0;
   object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.popular-card-items:hover .car-image img {
+  transform: scale(1.15) rotate(2deg);
 }
 .popular-card-items .car-image::before {
   content: "";
@@ -6836,6 +6855,8 @@ input.main-search-input::placeholder {
   height: 70px;
   border-radius: 50%;
   border: 2px solid var(--theme);
+  object-fit: cover;
+  display: block;
 }
 .testimonial-card-items .testimoni-bg-shape {
   position: relative;
