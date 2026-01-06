@@ -412,6 +412,11 @@ span {
 .about-wrapper .about-content {
   margin-left: 30px;
 }
+.about-wrapper .about-content p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+}
 @media (max-width: 1199px) {
   .about-wrapper .about-content {
     margin-left: 0;
@@ -456,10 +461,11 @@ span {
 }
 .about-wrapper .about-content .about-list-item ul li {
   font-size: 20px;
-  color: var(--header);
+  color: #0c142e;
   padding-bottom: 5px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid #e0e0e0;
   transition: all 0.4s ease-in-out;
+  font-weight: 500;
 }
 @media (max-width: 575px) {
   .about-wrapper .about-content .about-list-item ul li {
@@ -1656,12 +1662,35 @@ span {
 
 .feature-benefit-items {
   margin-top: 30px;
-  border-radius: 10px;
+  border-radius: 15px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   z-index: 9;
   background-color: var(--white);
-  box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.feature-benefit-items::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 55, 38, 0.1) 0%, transparent 70%);
+  border-radius: 15px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: -1;
+}
+.feature-benefit-items:hover {
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2), 0px 10px 30px 0px rgba(255, 55, 38, 0.15);
+  transform: translateY(-8px);
+}
+.feature-benefit-items:hover::before {
+  opacity: 1;
+  box-shadow: 0px 30px 60px 0px rgba(255, 55, 38, 0.25);
 }
 .feature-benefit-items .icon-box-shape {
   position: absolute;
@@ -1669,10 +1698,10 @@ span {
   right: -10px;
 }
 .feature-benefit-items .feature-content {
-  box-shadow: var(--box-shadow);
+  box-shadow: none;
   background-color: var(--white);
-  padding: 40px 50px;
-  border-radius: 10px;
+  padding: 45px 50px;
+  border-radius: 15px;
 }
 @media (max-width: 767px) {
   .feature-benefit-items .feature-content {
@@ -1685,26 +1714,33 @@ span {
   }
 }
 .feature-benefit-items .feature-content h4 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 .feature-benefit-items .feature-content h4 a:hover {
   color: var(--theme);
 }
 .feature-benefit-items .feature-content p {
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
 }
 .feature-benefit-items .feature-content .icon {
-  width: 98px;
-  height: 98px;
-  line-height: 80px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
   text-align: center;
   border-radius: 50%;
-  background-color: var(--theme2);
-  border: 9px solid var(--white);
-  margin: 0 0 -100px 0;
+  background: linear-gradient(135deg, var(--theme2) 0%, #0052a3 100%);
+  border: 8px solid var(--white);
+  margin: 0 0 -110px 0;
   z-index: 9;
   position: relative;
   transition: all 0.4s ease-in-out;
+  box-shadow: 0px 8px 20px rgba(0, 82, 181, 0.2);
 }
 @media (max-width: 575px) {
   .feature-benefit-items .feature-content .icon {
@@ -1715,18 +1751,21 @@ span {
   }
 }
 .feature-benefit-items .feature-button {
-  padding: 25px 40px;
+  padding: 30px 50px;
   text-align: right;
-  background-color: #e4e7eb;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   transition: all 0.4s ease-in-out;
+  border-top: 1px solid #e0e0e0;
 }
 .feature-benefit-items .feature-button .link-btn {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.5px;
   color: var(--text);
   position: relative;
   z-index: 9;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 .feature-benefit-items .bg-button-shape {
   position: absolute;
@@ -1735,10 +1774,12 @@ span {
   z-index: 1;
 }
 .feature-benefit-items:hover .feature-content .icon {
-  background-color: var(--theme);
+  background: linear-gradient(135deg, var(--theme) 0%, #ff5a3d 100%);
+  transform: scale(1.1);
+  box-shadow: 0px 12px 30px rgba(255, 55, 38, 0.3);
 }
 .feature-benefit-items:hover .feature-button {
-  background-color: var(--theme);
+  background: linear-gradient(135deg, var(--theme) 0%, #ff5a3d 100%);
 }
 .feature-benefit-items:hover .feature-button .link-btn {
   color: var(--white);
@@ -5510,16 +5551,21 @@ input.main-search-input::placeholder {
 
 .car-rentals-items {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .car-rentals-items .car-image {
   position: relative;
   overflow: hidden;
+  height: 250px;
 }
 .car-rentals-items .car-image img {
   width: 100%;
   height: 100%;
   border-radius: 10px 10px 0 0;
   transition: all 0.4s ease-in-out;
+  object-fit: cover;
 }
 .car-rentals-items .car-content {
   padding: 25px 35px;
@@ -5527,6 +5573,9 @@ input.main-search-input::placeholder {
   border-radius: 0 0 10px 10px;
   border: 1px solid #d0d7de;
   position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 .car-rentals-items .car-content .post-cat {
   padding: 8px 14px;
@@ -5589,6 +5638,7 @@ input.main-search-input::placeholder {
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 1.3px;
+  margin-top: auto;
 }
 .car-rentals-items:hover .car-image img {
   transform: scale(1.1);
