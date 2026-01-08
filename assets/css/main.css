@@ -3038,9 +3038,17 @@ span {
   align-items: center;
   gap: 80px;
 }
+.header-1 .header-main .header-left .logo {
+  width: auto;
+  flex-shrink: 0;
+}
+.header-1 .header-main .header-left .logo a {
+  display: inline-block;
+}
 .header-1 .header-main .header-left .logo img {
   max-width: 120px;
   height: auto;
+  display: block;
 }
 .header-1 .header-main .main-menu ul li a {
   font-weight: 500;
